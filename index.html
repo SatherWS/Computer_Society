@@ -1,0 +1,283 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>Stocton Computer Science</title>
+  <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--bootstrap css-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!--main css-->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <!--owl carousel css-->
+  <link rel="stylesheet" href="owlcarousel/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="owlcarousel/assets/owl.theme.default.min.css">
+  <!--Bootstrap Fonts & Icons-->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!--google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+</head>
+<body class="landing">
+  <!--desktop/tablet nav-->
+  <nav id="menu">
+      <img class="logo" src="img/stockton_seal.png" alt="main">
+      <div class="nav-list">
+        <ul>
+          <li class="nav-item">
+              <a href="#about">
+                <i class="fa fa-laptop"> <span>About Us</span></i>
+              </a>
+            </li>
+            <li class="nav-item">
+                <a href="#board">
+                  <i class="fa fa-users"> <span>Board Members</span></i>
+                </a>
+              </li>
+            <li class="nav-item">
+              <a href="#contact">
+                <i class="fa fa-envelope-o"> <span>Contact Info</span></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="./php/voting_app/create_ballot.php">
+                <i class="fa fa-pencil-square-o"> <span>Create a Ballot</span></i>
+              </a>
+            </li>
+            <li class="nav-item">
+                <!--/php/voting_app/-->
+                <a href="vote-caster/index.html">
+                  <i class="fa fa-bar-chart"> <span>View Ballots</span></i>
+                </a>
+            </li>
+          </ul> 
+          <div class="someLine"></div>
+        </div>
+         
+    </nav>
+  <!--Landing page-->
+  <section id="particles-js">
+    <!--mobile nav-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">        
+          <img class="logo" src="img/stockton_seal.png" alt="main">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a href="#about">
+                  <i class="fa fa-laptop"> <span>About Us</span></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                  <a href="#board" data-toggle="collapse" data-target=".navbar-collapse.in">
+                    <i class="fa fa-users"> <span>Board Members</span></i>
+                  </a>
+                </li>
+              <li class="nav-item">
+                <a href="#contact">
+                  <i class="fa fa-envelope-o"> <span>Contact Us</span></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./php/voting_app/create_ballot.php">
+                  <i class="fa fa-pencil-square-o"> <span>Create a Ballot</span></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                  <a href="./php/voting_app/view_ballots.php">
+                    <i class="fa fa-bar-chart"> <span>View Ballots</span></i>
+                  </a>
+              </li>
+          </ul>
+        </div>
+    </nav>
+    <!--Landing text-->
+    <div class="panel">
+      <h1>The Computer Society</h1>
+      <p>Stockton Universities' student operated computer science organization.</p>
+      <button class="cta btn btn-primary">Sign Up Here</button>
+    </div>
+  </section>
+  <!--About, board members & contact form all pushed to the right within section.spacing-->
+  <section class="spacing">
+    <!--About Section-->
+    <div id="about">
+      <div class="row">
+        <div class="col-md-4 or1">
+          <div class="about-title text-center">
+            <div class="img-bg">
+              <div class="overlay">
+                <h2>Meeting Info</h2>
+              </div>
+            </div> 
+            <div class="descript">
+                <h4>The Computer Society meets every other Thursday at 4:30pm in room G108</h4>
+                <div class="social-links">
+                  <input type="button" value="Find Out More" class="btn btn-success">
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 about-side">
+          <div class="act-head">
+            <div class="overlay3">
+              <h2 class="text-center">Club Activities</h2>
+            </div>
+          </div>
+          <div class="about-title1">
+            <h4>Hardware & Software Projects</h4>
+            <p>Projects include but are not limited to: PC construction, 
+                learning new programming languages, and various electronics projects.</p>
+            <h4>Resume Building</h4>
+            <p>Getting involved with our organization is a great way to show employers how you can apply the skills you've learned during college.</p>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <!--Board Members Section-->
+    <div id="board" class="directors">
+      <div class="board-title">
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Board of Directors</h2>
+          </div>  
+          <div id="change" class="col-md-6 text-right">
+            <input type="button" value="Past Directors" class="btn btn-success">
+          </div>
+        </div>
+      </div>
+      <div class="owl-carousel owl-theme text-center section-padding" id="board">
+        <div class="card">
+          <i class="fa fa-user placer"></i>
+          <h4>President Place Holdington</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex, provident iste delectus similique ut alias.</p>
+        </div>
+        <div class="card">
+          <i class="fa fa-user placer"></i>
+          <h4>Vice President Place Holdington</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex, provident iste delectus similique ut alias.</p>
+        </div>
+        <div class="card">
+          <i class="fa fa-user placer"></i>
+          <h4>Treasurer Place Holdington</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex, provident iste delectus similique ut alias.</p>
+        </div>
+        <div class="card">
+          <i class="fa fa-user placer"></i>
+          <h4>Chairman Place Holdington</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex, provident iste delectus similique ut alias.</p>
+        </div>
+        <div class="card">
+          <i class="fa fa-user placer"></i>
+          <h4>Historian Place Holdington</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ex, provident iste delectus similique ut alias.</p>
+        </div>  
+      </div>  
+    </div>
+
+    <!--Contact form-->
+    <div class="row" id="contact">
+      <div class="col-md-4">
+        <div class="line-bg">
+          <div class="info">  
+            <h2>Join our Discord Server</h2>
+            <p>Discord is a free instant messaging platform developed for gamers. Our server provides means of collaboration for club projects.</p>
+            <div href=""  class="text-center">
+              <a href="https://discord.gg/FuhCwm" target="_blank">
+                <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 240"><style>.st0{fill:#FFFFFF;}</style><path class="st0" d="M104.4 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zM140.9 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"/><path class="st0" d="M189.5 20h-134C44.2 20 35 29.2 35 40.6v135.2c0 11.4 9.2 20.6 20.5 20.6h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.5 19V40.6c0-11.4-9.2-20.6-20.5-20.6zm-38.6 130.6s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.6 15.2z"/></svg>
+                <h5>The Computer Society</h5>
+              </a>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 r-block">
+        <div class="grey-bg">
+            <h2 class="c-head">Leave us a message</h2>
+            <form action="">
+              <div class="row">
+                <div class="col-md-6">
+                  <input class="form-control" type="text" name="name" id="" placeholder="Full name">
+                </div>
+                <div class="col-md-6">
+                  <input class="form-control" type="email" name="sender" id="" placeholder="Email">
+                </div>
+                <div class="col-md-12">
+                  <input class="form-control" type="text" name="subject" id="" placeholder="Subject">
+                </div>
+                <div class="col-md-12">
+                  <textarea class="form-control" name="msg" id="" rows="5" placeholder="Question & comments"></textarea> 
+                </div>
+                <div class="col-md-6">
+                  <input type="submit" value="Send Message" class="btn btn-success btn-md btn-block">
+                </div>  
+              </div>
+            </form>
+          </div>
+      </div>
+    </div>
+    <!--footer section-->
+    <footer class="row">
+      <div class="col-md-12 r-block">
+        <div class="foot-title">
+          <div class="social-icons">
+            <a class="git" href="https://github.com/stockton-cs" target="_blank">
+              <i class="fa fa-git"></i>
+            </a>
+            <a class="facebook" href="https://www.facebook.com/stkcsis" target="_blank">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a class="sws" href="https://satherws.github.io" target="_blank">
+              <i class="fa fa-external-link-square"></i>
+            </a>
+          </div>
+          <p>Designed and developed by Sather Web Services</p>
+          <p>&copy; 2019 Stockton Computer Society</p>
+        </div>  
+      </div>
+    </footer>
+  </section>
+  
+
+
+  <script src="scripts/jquery-min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="owlcarousel/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="scripts/particles.js"></script>
+  <script type="text/javascript" src="scripts/app.js"></script>
+  <script src="scripts/main.js"></script>
+
+  <script>
+  $(document).ready(function(){
+    $(".owl-carousel").owlCarousel();
+  });
+  $('.owl-carousel').owlCarousel({
+    loop:true,
+    dots:true,
+    margin:10,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:1,
+            nav:true
+        },
+        1000:{
+            items:3,
+            nav:true,
+            loop:false
+        }
+    }
+})
+</script>
+</body>

@@ -1,0 +1,50 @@
+/* Board Members Section*******/
+.grid-container {
+	padding: 10% 0;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 10px;
+	width: 850px;
+	height: auto;
+	padding: 10% 0;
+	margin-top: 3rem;
+	padding-top: 2rem;
+	margin: 0 auto;
+	font-family: 'Anton', sans-serif;
+}
+@media screen and (max-width: 850px) {
+	.grid-container {
+		grid-template-columns: auto auto;
+		width: 470px;
+		height: auto;
+	}
+}
+@media only screen and (max-width: 492px) {
+	.grid-container {
+		grid-template-columns: auto;
+		width: 470px;
+		height: auto;
+	}
+}
+.item {
+	list-style: none;
+	background-color: #7fbee6;
+	border: 1px solid black;
+	text-align: center;
+	font-size: 30px;
+	padding: 10px;
+	cursor: pointer;
+}
+.grid-container > li:hover {
+	background-color:#fff;
+ }
+ .active, .collapsible:hover {
+	 background-color: #fff;
+ }
+ .content {
+	 overflow: hidden;
+	 display: none;
+
+ }
+ /*End Board Members Section*/
+

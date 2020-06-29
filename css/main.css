@@ -1,0 +1,367 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/* NAV SECTION
+icon overrides*/
+.fa-navicon:before, .fa-reorder:before, .fa-bars:before {
+	content: "\f0c9";
+	padding-right: 1rem;
+    font-size: 20pt;
+}
+.fa-home:before {
+	padding-right: 1rem;
+    font-size: 20pt;
+}
+.fa-edit:before, .fa-pencil-square-o:before {
+    content: "\f044";
+    padding-right: 1rem;
+    font-size: 20pt;
+}
+.fa-bar-chart-o:before, .fa-bar-chart:before {
+    content: "\f080";
+    padding-right: 1rem;
+    font-size: 20pt;
+}
+.fa-laptop:before {
+	content: "\f121";
+	padding-right: 1rem;
+    font-size: 20pt;
+}
+.fa-group:before, .fa-users:before {
+	content: "\f0c0";
+	padding-right: 1rem;
+    font-size: 20pt;
+}
+.fa-envelope-o:before {
+	content: "\f003";
+	padding-right: 1rem;
+    font-size: 20pt;
+}
+/* nav choices section*********/ 
+.navbar {
+	/*hide mobile nav*/
+	display: none;
+}
+#menu {
+	position: fixed;
+	z-index: 1;
+	width:20%;
+	height:100%;
+	background: #222326;
+}
+.nav-list {
+	padding: 2rem 0 4rem 0;
+}
+span {
+	font-family: 'Ubuntu', sans-serif;
+}
+.nav-list ul {
+	list-style: none;
+	margin-top:1rem;
+}
+.nav-item a {
+	color: #b1afaf;
+	text-decoration: none;
+	display: block;
+	padding: .5rem .5rem .5rem 1rem;
+}
+.nav-list a:hover {
+	text-decoration: none;
+	color: #fff;
+}
+.nav-item {
+	font-size: 14pt;
+}
+.nav-item:hover a {
+	background-color: #121314;
+	color: #fff;
+}
+.someLine {
+	border-top: solid #121314 8px;
+}
+.logo {
+	padding-left: 1rem;
+	padding-top: 1rem;
+	display: block;
+	width: 125px;
+}
+/*end nav css=====================*/
+/*Landing Page Start************/
+body.landing {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	background-color:#121314;
+
+}
+body {
+	max-width: 100%;
+	background-color:#121314;
+	overflow-x: hidden;
+	font-family: 'Ubuntu', sans-serif;
+}
+#particles-js {
+	width:80%;
+	height: 100%;
+	position: relative;
+	background: #121314;
+	background-image: url("../img/landing-pattern.png");
+	float:right;
+}
+.panel {
+	text-align: center;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top: 50%;
+	left:50%;
+	width: 60%;
+	padding: 2rem;
+	color: #fff;
+}
+
+.panel h1 {
+	text-align: center;
+	font-size: 32pt;
+}
+.panel p {
+	font-size: 16pt;
+}
+/* All buttons styling*/
+.cta.btn-primary {
+    color: #fff;
+	background-color: #453f78;
+    border: solid 2.5px #453f78;
+    font-size: 14pt;
+}
+.cta.btn-primary:hover {
+	background-color: #28a745;
+    border: solid 2.5px #28a745;
+}
+.btn-success {
+    color: #fff;
+    background-color: #453f78;
+    border-color: #453f78;
+    border-width: unset;
+
+}
+/*About Section ======================*/
+.spacing {
+	width:80%;
+	float:right;
+}
+/*left column*/
+.about-title1 {
+	padding: 12px 15px;
+	color: #fff;
+	background: #222326;
+	margin-right: 2rem;
+}
+.about-title {
+	padding: 0 0 0 3rem;
+	color: #fff;
+}
+.about-title p {
+	color: #b1afaf;
+}
+.about-title1 p {
+	color: #b1afaf;
+}
+
+/*right column*/
+.act-head {
+	background-image: url("../img/comp.jpg");
+	background-position-x: 50%;
+	background-position-y: 55%;
+	margin-right: 2rem;
+	margin-bottom: 15px;
+}
+.overlay3 {
+	padding: 2rem;
+	background: rgba(69, 63, 120, .5);
+}
+.about-side {
+	color:#fff;
+}
+.col-md-4 {
+	padding-left: 0px!important;
+	padding-right:0px!important;
+}
+.img-bg{
+	color: #fff;
+	background: #222326;
+	background-position-y: 60%;
+	margin-bottom: 15px;
+}
+.overlay {
+	padding: 2rem 1rem;
+}
+.descript {
+	padding: 1rem;
+	/*background: #222326;*/
+}
+.col-md-8.or1 {
+	padding-top: 1rem;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.social-links {
+	padding: 1rem 0;
+}
+/* end about section*/
+/* Board Members Section*******/
+.owl-carousel {
+	z-index: 0;
+}
+.directors {
+	padding: 3rem 0;
+}
+.board-title {
+	color: #fff;
+	margin: 1rem 2rem;
+	border-bottom: solid 2px #222326;
+	padding: .5rem 0;
+}
+.overlay2 {
+	border-bottom: solid 2px #222326;
+}
+i.fa.fa-user.placer {
+    font-size: 50pt;
+}
+.section-padding {
+	padding: 2rem;
+	padding-top: 1rem;
+	color: #fff;
+}
+.card {
+	background-color: #222326!important;
+	height: auto;
+	margin: 0 auto;
+	padding: 10% 0;
+	z-index: -1;
+	padding: 1rem;
+	border-radius: 0px;
+  }
+.card p {
+	color: #b1afaf;
+}
+/* owl carousel */
+.owl-nav {
+	position: relative;
+	font-size: 50pt;
+}
+.owl-prev {
+	bottom: 100px;
+	position: absolute;
+	left: 10px;
+}
+.owl-next {
+	bottom: 100px;
+	position: absolute;
+	right:10px;
+}
+/*Contact section*/
+.line-bg {
+	padding: 0 0 0 50px;
+	color: #fff;
+}
+.inline-link {
+	display: inline-block;
+}
+svg {
+	width: 75px;
+}
+.info {
+	padding:2rem;
+	/*background: #222326;*/
+}
+.info p {
+	color: #b1afaf;
+}
+.c-head {
+	margin-bottom:13px;
+}
+.grey-bg {
+	background:#222326;
+	color: #fff;
+	padding: 2rem;
+	margin-right:2rem;
+}
+.form-control {
+	width: 100%;
+	margin-bottom: .5rem;
+}
+/*footer===============*/
+.foot-title {
+	padding: 2rem;
+	background: #222326;
+	color: #b1afaf;
+	margin: 2rem;
+	margin-bottom: 0px;
+}
+.social-icons {
+	padding-bottom: 1rem;
+}
+.social-icons a {
+	color: #fff;
+	width: 36px;
+	height: 36px;
+	line-height: 34px;
+	display: inline-block;
+	text-align: center;
+	border-radius: 100%;
+	font-size: 20px;
+	margin-right: 8px;
+	transition: all 0.3s ease-in-out 0s;
+	-moz-transition: all 0.3s ease-in-out 0s;
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	-o-transition: all 0.3s ease-in-out 0s;
+}
+.social-icons .facebook {
+    background: #1260A2;
+}
+.social-icons .git {
+	background:#5ab759;
+}
+.social-icons .sws {
+	background:#1f7a8c;
+}
+.social-icons .facebook:hover {
+    background: #121314;
+}
+.social-icons .git:hover {
+	background:#121314;
+}
+.social-icons .sws:hover {
+	background:#121314;
+}
+
+/* Voting App Styles */
+.ballot-panel {
+	color: #fff;
+	padding: 1.5rem;
+}
+
+.detail-panel {
+	margin: .5rem;
+	margin-top: 0;
+	margin-right: 0;
+	padding: 1rem;
+	background:#222326;
+	color: #fff;
+}
+.spc-n {
+	padding: 1rem;
+	font-size: 1rem;
+	width: 450px;
+}
+
+.table {
+	background: rgba(255, 255, 255, 0.9);
+}
+
+tr:hover {
+	background: #453f78;
+	color: #fff;
+}
