@@ -10,6 +10,10 @@ icon overrides*/
 	padding-right: 1rem;
     font-size: 20pt;
 }
+.fa-comments-o:before {
+	padding-right: 1rem;
+    font-size: 20pt;
+}
 .fa-home:before {
 	padding-right: 1rem;
     font-size: 20pt;
@@ -116,24 +120,23 @@ body {
 	transform: translate(-50%,-50%);
 	top: 50%;
 	left:50%;
-	width: 60%;
-	padding: 2rem;
+	width: 70%;
 	color: #fff;
 }
 
 .panel h1 {
 	text-align: center;
-	font-size: 32pt;
+	font-size: 52pt;
 }
 .panel p {
-	font-size: 16pt;
+	font-size: 26pt;
 }
 /* All buttons styling*/
 .cta.btn-primary {
     color: #fff;
 	background-color: #453f78;
     border: solid 2.5px #453f78;
-    font-size: 14pt;
+    font-size: 23pt;
 }
 .cta.btn-primary:hover {
 	background-color: #28a745;

@@ -2,7 +2,7 @@
     include_once("./db_config.php");
     $database = new Database();
     $curs = $database -> getConnection();
-    $sql = "select admin from topics where id = ?";
+    $sql = "select admin, status from topics where id = ?";
     $stmnt = mysqli_prepare($curs, $sql);
     $stmnt -> bind_param("s", $_GET["ballot"]);
     $stmnt -> execute();
@@ -16,7 +16,10 @@
                 echo "<div class='row'><div class='col-md-6'>";
                 echo "<h3>Thanks for Voting ".$_SERVER["REMOTE_ADDR"]."</h3></div>";
                 echo "<div class='col-md-6 text-right'>";
-                echo "<input type='submit' name='change-status' value='Close Ballot' class='btn btn-danger'></div></div>";
+                if ($row["status"] == "Open")
+                    echo "<input type='submit' name='change-status' value='Close Ballot' class='btn btn-danger'></div></div>";
+                else
+                    echo "<input type='submit' name='change-status' value='Open Ballot' class='btn btn-success'></div></div>";
             }
 
             else

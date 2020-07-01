@@ -21,7 +21,9 @@
 CREATE TABLE `topics` (
   `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `admin` varchar(30) NOT NULL,
-  `topic` varchar(100) NOT NULL
+  `topic` varchar(100) NOT NULL,
+  `status` varchar(20) DEFAULT 'Open' NOT NULL,
+  `date_created` datetime DEFAULT CURRENT_TIMESTAMP
 );
 
 
@@ -36,7 +38,6 @@ CREATE TABLE `votes` (
   `vote` varchar(8) NOT NULL,
   `client` varchar(35) NOT NULL,
   `topic_id` int(11) NOT NULL,
-  `status` varchar(20) DEFAULT 'Open' NOT NULL,
   FOREIGN KEY (`topic_id`) REFERENCES topics(`id`)
 );
 
