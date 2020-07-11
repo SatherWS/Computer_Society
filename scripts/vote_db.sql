@@ -41,4 +41,17 @@ CREATE TABLE `votes` (
   FOREIGN KEY (`topic_id`) REFERENCES topics(`id`)
 );
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+create table users (
+  id int primary key auto_increment not null,
+  username varchar(50) unique not null,
+  email varchar(60) unique not null,
+  pswd varchar(255) not null,
+  date_joined datetime default current_timestamp
+);
 

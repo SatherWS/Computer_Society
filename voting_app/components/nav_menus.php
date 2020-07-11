@@ -1,42 +1,52 @@
 <!--desktop/tablet nav-->
+<?php session_start();?>
 <nav id="menu">
     <a href="../index.html">
         <img class="logo" src="../img/stockton_seal.png" alt="main">
     </a>
     <div class="nav-list">
-    <ul>
-        <li class="nav-item">
-            <a href="../index.html#about">
-            <i class="fa fa-laptop"> <span>About Us</span></i>
-            </a>
-        </li>
-        <li class="nav-item">
-              <a href="#about" target="_blank">
-                <i class="fa fa-comments-o"> <span>Discord Server</span></i>
-              </a>
-        </li>
-        <li class="nav-item">
-            <a href="../index.html#board">
-                <i class="fa fa-users"> <span>Board Members</span></i>
-            </a>
+        <ul>
+            <li class="nav-item">
+                <a href="../index.html#about">
+                <i class="fa fa-laptop"> <span>About Us</span></i>
+                </a>
             </li>
-        <li class="nav-item">
-            <a href="../index.html#contact">
-            <i class="fa fa-envelope-o"> <span>Contact Info</span></i>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="./create_ballot.php">
-            <i class="fa fa-pencil-square-o"> <span>Create a Ballot</span></i>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="./view_ballots.php">
-                <i class="fa fa-bar-chart"> <span>View Ballots</span></i>
-            </a>
-        </li>
+            <li class="nav-item">
+                <a href="#about" target="_blank">
+                    <i class="fa fa-comments-o"> <span>Discord Server</span></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="../index.html#board">
+                    <i class="fa fa-users"> <span>Board Members</span></i>
+                </a>
+                </li>
+            <li class="nav-item">
+                <a href="../index.html#contact">
+                <i class="fa fa-envelope-o"> <span>Contact Info</span></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="./create_ballot.php">
+                <i class="fa fa-pencil-square-o"> <span>Create a Ballot</span></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="./view_ballots.php">
+                    <i class="fa fa-bar-chart"> <span>View Ballots</span></i>
+                </a>
+            </li>
         </ul> 
         <div class="someLine"></div>
+        <div class="nav-button-box">
+            <br></br>
+            <?php
+                if (isset($_SESSION["user"]))
+                    include("./components/user_btns.php");
+                else
+                    include("./components/non_user_btns.php");
+            ?>
+        </div>
     </div>
 </nav>
 <!--mobile nav-->
@@ -77,6 +87,11 @@
             <li class="nav-item">
                 <a href="./view_ballots.php">
                 <i class="fa fa-bar-chart"> <span>View Ballots</span></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="./register.php">
+                <i class="fa fa-user"> <span>Sign Up</span></i>
                 </a>
             </li>
         </ul>

@@ -1,18 +1,23 @@
 <?php
-  include_once("db_config.php");
-  $database = new Database();
-  $curs = $database->getConnection();
-    
-  if ($curs->connect_error) {
-    die("Connection failed: " . $curs->connect_error);
-  }
-  // add voting topic to table of polls
-  if ($_POST["topic"] && $_POST["admin"]) {
-    $sql = "insert into topics(admin, topic) values (?, ?)";
-    $stmnt = mysqli_prepare($curs, $sql);
-    $stmnt -> bind_param("ss", $_POST['admin'], $_POST['topic']);
-    $stmnt -> execute();
-    header("Location: ./view_ballots.php");
+  session_start();
+  if (!isset($_SESSION["user"]))
+    header("Location: ./login.php");
+  else {
+      include_once("db_config.php");
+      $database = new Database();
+      $curs = $database->getConnection();
+        
+      if ($curs->connect_error) {
+        die("Connection failed: " . $curs->connect_error);
+      }
+      // add voting topic to table of polls
+      if ($_POST["topic"] && $_POST["admin"]) {
+        $sql = "insert into topics(admin, topic) values (?, ?)";
+        $stmnt = mysqli_prepare($curs, $sql);
+        $stmnt -> bind_param("ss", $_POST['admin'], $_POST['topic']);
+        $stmnt -> execute();
+        header("Location: ./view_ballots.php");
+      }
   }
 ?>
 <!DOCTYPE html>
@@ -41,19 +46,23 @@
 <body>
   <?php include("./components/nav_menus.php"); ?>
   <section id="particles-js">
-    <form method="post" class="app" id="post-journal">
-      <div class="ballot-panel">
-          <h1>New Ballot Form</h1>
-          <h3>Username: <?php echo $_SERVER['REMOTE_ADDR'];?></h3>
-          <br>
-          <input type="text" name="topic" placeholder="Describe the Topic to Vote On" id="form-control" class="spc-n" required>
-          <input type="hidden" name="admin" value="<?php echo $_SERVER['REMOTE_ADDR'];?>" required>
-          <br></br>
-          <textarea name="" id="" cols="30" rows="10" class="spc-n" placeholder="Write additional details about the topic (Optional)"></textarea>
-          <br></br>
-          <input class="btn btn-success btn-lg" type="submit" value="Create Ballot">
+    <div class="section-1"></div>
+    <div class="row">
+      <div class="col-md-6">
+        <form method="post" class="app" id="post-journal">
+          <div class="stockton-panel">
+              <h1>New Ballot Form</h1>
+              <!--<h3>Username: <?php //echo $_SERVER['REMOTE_ADDR'];?></h3>-->
+              <h3>Username: <?php echo $_SESSION["user"] ?></h3>
+              <input type="text" name="topic" placeholder="Title of the topic to vote on" class="form-control" class="spc-n" required>
+              <input type="hidden" name="admin" value="<?php echo $_SESSION["user"];?>" required>
+              <textarea name="desc" id="" cols="30" rows="10" class="form-control" placeholder="Write additional details about the topic (Optional)"></textarea>
+              <input class="btn btn-success btn-lg" type="submit" value="Create Ballot">
+          </div>
+        </form>
       </div>
-    </form>
+      <div class="col-md-6"></div>
+    </div>
   </section>
 
   <script src="../scripts/jquery-min.js"></script>

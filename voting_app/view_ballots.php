@@ -1,15 +1,18 @@
 <?php
-    include_once("db_config.php");
-    $database = new Database();
-    $curs = $database->getConnection();
+    session_start();
+    if (!isset($_SESSION["user"]))
+        header("Location: ./login.php");
+    else {
+        include_once("db_config.php");
+        $database = new Database();
+        $curs = $database->getConnection();
 
-    if ($curs->connect_error) {
-    die("Connection failed: " . $curs->connect_error);
-    }
-    $sql = "select id, topic, admin, status, date_created from topics order by date_created desc";
-    //$sql = "select id, topic, admin, date_created from topics order by date_created desc";
-    $result = mysqli_query($curs, $sql);
-
+        if ($curs->connect_error) {
+            die("Connection failed: " . $curs->connect_error);
+        }
+        $sql = "select id, topic, admin, status, date_created from topics order by date_created desc";
+        $result = mysqli_query($curs, $sql);
+    }    
 ?>
 <!DOCTYPE html>
 <html lang="en">

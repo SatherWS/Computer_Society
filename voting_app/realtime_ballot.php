@@ -1,8 +1,9 @@
 <?php
     session_start();
-
     include_once("db_config.php");
+    //include("./components/load_votes.php");
     $database = new Database();
+    //$allvotes = new DataGroups();
     $curs = $database->getConnection();
 
     $sql = "select * from topics where id = ?";
@@ -10,14 +11,6 @@
     $stmnt -> bind_param("s", $_GET["ballot"]);
     $stmnt -> execute();
     $results = $stmnt -> get_result();
-
-    // cast vote to selected poll if vote btn is clicked
-    if ( $_POST["vote"]) {
-        $sql = "insert into votes(topic_id, vote, client) values (?, ?, ?)";
-        $stmnt = mysqli_prepare($curs, $sql);
-        $stmnt -> bind_param("sss", $_GET["ballot"], $_POST["vote"], $_POST["usr"]);
-        $stmnt -> execute();
-    }
     
     if ($_POST["change-status"]) {
       if ($_POST["change-status"] == "Close Ballot")  
@@ -28,45 +21,7 @@
       $stmnt -> bind_param("s", $_GET["ballot"]);
       $stmnt -> execute();
     }
-    
-    function hasVoted($curs, $voted) {
-        $sql = "select id from votes where client = ? and topic_id = ?";
-        $stmnt = mysqli_prepare($curs, $sql);
-        $stmnt -> bind_param("ss", $voted, $_GET["ballot"]);
-        $stmnt -> execute();
-        $results = $stmnt -> get_result();
-        if (mysqli_num_rows($results) > 0) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
 
-    if (hasVoted($curs, $_SESSION["user"]))
-        header("Location: ./realtime_ballot.php?ballot=".$_GET["ballot"]);
-
-    // data for bar graph visual
-    $sql2 = "select vote, count(*) as counts from votes where topic_id = ? group by vote";
-    $stmnt2 = mysqli_prepare($curs, $sql2);
-    $stmnt2 -> bind_param("s", $_GET["ballot"]);
-    $stmnt2 -> execute();
-    $results2 = $stmnt2 -> get_result();
-    $yes_count = $no_count = $maybe_count = 0;
-
-    if (mysqli_num_rows($results2) > 0) {
-        while($row = mysqli_fetch_assoc($results2)) {
-            if ($row["vote"] == "yes") {
-                $yes_count = $row["counts"];
-            }
-            if ($row["vote"] == "no") {
-                $no_count = $row["counts"];
-            }
-            if ($row["vote"] == "maybe") {
-                $maybe_count = $row["counts"];
-            }
-        }
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -90,40 +45,84 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <!--google fonts-->
   <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- realtime vote rendering using ajax -->
+  <script>
+	function loaddata()
+    {
+	   $.ajax({
+           url: './components/load_votes.php?ballot=<?php echo $_GET["ballot"];?>',
+           success: function (response) {
+                $('.display_info' ).html(response);
+           }
+	   });
+	   // recursive call to set timeout function
+	   setTimeout(loaddata, 2000);
+	}
+    loaddata();
+</script>
+
 </head>
 <body>
     <?php include("./components/nav_menus.php"); ?>
     <section id="particles-js">
+        
         <div class="detail-panel">
-            <div class="row">
-            <?php
-                while ($row = mysqli_fetch_assoc($results)) {
-                    echo "<div class='col-md-6'><h1>".$row["topic"]."</h1>";
-                    echo "<h3>".$row["date_created"]."</h3></div>";
-                    echo "<div class='col-md-6 text-right'></div>";
-                    //echo "<h3><span class='badge badge-pill badge-success'>".$row["status"]."</span></h3></div>";
-                }
-            ?>
-            </div>
             <form method="post">
-                <h3>Your Username: <?php echo $_SESSION['user'];?></h3>
-                <input type='hidden' value='<?php echo $_SESSION['user'];?>' name='usr' class='form-control' placeholder='Enter Your Name'>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h3>Select Your Vote:</h3>
-                    </div>
-                    <div class="col-md-6 text-right">
-                        <button type="submit" name="vote" value="yes" class="btn btn-success">Yes</button>
-                        <button type="submit" name="vote" value="no" class="btn btn-success">No</button>
-                        <button type="submit" name="vote" value="maybe" class="btn btn-success">Maybe</button>
+                <div class="review">
+                    <div class="row">
+                    <?php
+                        while ($row = mysqli_fetch_assoc($results)) {
+                            echo "<div class='col-md-6'><h1>".$row["topic"]."</h1>";
+                            echo "<h3>".$row["date_created"]."</h3></div>";
+                            echo "<div class='col-md-6 text-right'>";
+                            if ($row['status'] == "Open")
+                                echo "<h3><span class='badge badge-pill badge-success'>".$row["status"]."</span></h3></div></div>";
+                            if ($row['status'] == "Closed")
+                                echo "<h3><span class='badge badge-pill badge-danger'>".$row["status"]."</span></h3></div></div>";
+
+                            if ($row["admin"] == $_SESSION["user"]) {
+                                echo "<div class='row'><div class='col-md-6'>";
+                                echo "<h3>Thanks for Voting ".$_SESSION["user"]."</h3></div>";
+                                echo "<div class='col-md-6 text-right'>";
+                                if ($row["status"] == "Open")
+                                    echo "<input type='submit' name='change-status' value='Close Ballot' class='btn btn-danger'></div></div>";
+                                else
+                                    echo "<input type='submit' name='change-status' value='Open Ballot' class='btn btn-success'></div></div>";
+                            }
+                            else {
+                                echo "<h3>Thanks for Voting ".$_SESSION["user"]."</h3>";
+                            }
+                        }
+                    ?>
                     </div>
                 </div>
             </form>
         </div>
-
+        <div class="detail-panel">
+            <div class="row text-center">
+                <div class="col-md-4 text-success">
+                    <h4>Yes Votes</h4>
+                </div>
+                <div class="col-md-4 text-danger">
+                    <h4>No Votes</h4>
+                </div>
+                <div class="col-md-4 text-warning">
+                    <h4>Maybe Votes</h4>
+                </div>
+            </div>
+            <section class='display_info row text-center'>
+            
+            </section>
+        </div>
+        <div class="detail-panel">
+            <a href="./view_ballots.php" class="btn btn-success">Go Back</a>
+        </div>
+        <!--
         <div class="chart-container">
             <canvas style="position: relative; width: 600px; height: 460px;" id="myChart"></canvas>
         </div>
+        -->
     </section>
     
     <script src="../scripts/jquery-min.js"></script>
@@ -132,9 +131,10 @@
     <script type="text/javascript" src="../scripts/particles.js"></script>
     <script type="text/javascript" src="../scripts/app.js"></script>
     <script src="../scripts/main.js"></script>
-    <!--Graph Scripts-->
+    <!--Graph Scripts
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script>
+        var counts = document.getElementsByClassName(".display_info");
         var ctx = document.getElementById('myChart').getContext('2d');
         var chart = new Chart(ctx, {
             // The type of chart we want to create
@@ -144,7 +144,7 @@
             data: {
                 labels: ['Yes', 'No', 'Maybe'],
                 datasets: [{
-                    data: [<?php echo $yes_count.",".$no_count.",". $maybe_count;?>],
+                    data: [],
                     backgroundColor: [
                         '#2b9eb3',
                         '#f8333c',
@@ -194,10 +194,7 @@
             }
         });
 
-        // Prevent duplicate data on form refresh
-        if ( window.history.replaceState ) {
-            window.history.replaceState( null, null, window.location.href );
-        }
     </script>
+    -->
 </body>
 </html>

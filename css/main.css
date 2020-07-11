@@ -10,6 +10,10 @@ icon overrides*/
 	padding-right: 1rem;
     font-size: 20pt;
 }
+.fa-user-square:before {
+	padding-right: 1rem;
+    font-size: 20pt;
+}
 .fa-comments-o:before {
 	padding-right: 1rem;
     font-size: 20pt;
@@ -44,6 +48,10 @@ icon overrides*/
     font-size: 20pt;
 }
 /* nav choices section*********/ 
+.nav-button-box {
+	margin: 0 1rem;
+}
+
 .navbar {
 	/*hide mobile nav*/
 	display: none;
@@ -341,11 +349,13 @@ svg {
 }
 
 /* Voting App Styles */
-.ballot-panel {
+.stockton-panel {
 	color: #fff;
 	padding: 1.5rem;
 }
-
+.spacer-1 {
+	height: 130px;
+}
 .detail-panel {
 	margin: .5rem;
 	margin-top: 0;
@@ -366,5 +376,18 @@ svg {
 
 tr:hover {
 	background: #453f78;
+	color: #fff;
+}
+
+.display_info {
+	color: #fff;
+}
+
+.lg-txt {
+	font-size: 30pt!important;
+}
+
+/* Sign up and Login forms */
+.form-msg {
 	color: #fff;
 }
